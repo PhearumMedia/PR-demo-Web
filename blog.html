@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHEARUM</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Hidden posts */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">PHEARUM</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>My Blog</h1>
+      <p>Latest news, tutorials, and articles</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <main>
+    <section class="blog-section">
+      <h2>Latest Posts</h2>
+      <div class="blog-container">
+
+        <!-- Blog Card 1 -->
+        <article class="blog-post">
+          <img src="images/blog1.jpg" alt="Blog 1 Image">
+          <div class="blog-content">
+            <span class="blog-date">Oct 25, 2025</span>
+            <h3>Felling!</h3>
+            <p>The overall mood is one of powerful natural beauty and tranquility, suggesting a remote location like the Alps or a similar mountain range. The lighting is particularly impactful, making the scene feel luminous and grand.</p>
+            <a href="blog-post.html" class="btn">Read More</a>
+          </div>
+        </article>
+
+        <!-- Blog Card 2 -->
+        <article class="blog-post">
+          <img src="images/blog2.jpg" alt="Blog 2 Image">
+          <div class="blog-content">
+            <span class="blog-date">Oct 20, 2025</span>
+            <h3>Mind!</h3>
+            <p>The sky is bright blue with scattered, fluffy white clouds, suggesting a beautiful, sunny day, which highlights the vivid colors of the water and the greenery. The overall impression is one of immense, powerful, and majestic natural beauty.</p>
+            <a href="blog-post.html" class="btn">Read More</a>
+          </div>
+        </article>
+
+        <!-- Blog Card 3 (hidden initially) -->
+        <article class="blog-post hidden">
+          <img src="images/blog3.jpg" alt="Blog 3 Image">
+          <div class="blog-content">
+            <span class="blog-date">Oct 15, 2025</span>
+            <h3>Look!</h3>
+            <p>The sky is a brilliant, deep blue and is filled with an array of beautiful, white, fluffy cumulus clouds and thinner wisps of cirrus clouds. The lighting suggests a bright, sunny day, perhaps late afternoon or early morning, as the sun is low on the left horizon, casting a soft, warm glow over the scene.</p>
+            <a href="blog-post.html" class="btn">Read More</a>
+          </div>
+        </article>
+
+        <!-- Blog Card 4 (hidden initially) -->
+        <article class="blog-post hidden">
+          <img src="images/blog4.jpg" alt="Blog 4 Image">
+          <div class="blog-content">
+            <span class="blog-date">Oct 10, 2025</span>
+            <h3>Like That's!</h3>
+            <p>The background features multiple receding layers of mountains, creating a deep sense of distance and atmosphere. The peaks fade into hazy shades of blue and purple, a classic effect known as atmospheric perspective. In the distance, a lake or body of water is visible, reflecting the sky. A small valley with what appears to be human development (a town or fields) is nestled beneath the farthest mountains.
+
+The sky is the focal point of the light, with the sun positioned low on the horizon, casting a powerful orange, red, and golden glow that transitions into soft pinks and blues higher up. Wispy clouds streak across the frame, catching the last brilliant colors of the day.</p>
+            <a href="blog-post.html" class="btn">Read More</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="btn load-more-btn">Load More</button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 PHEARUM. All Rights Reserved.
+  </footer>
+
+  <!-- Floating Contact Button -->
+  <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+
+  <!-- Load More Script -->
+  <script>
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const hiddenPosts = document.querySelectorAll('.blog-post.hidden');
+
+    let postsToShow = 2; // Number of posts to show each time
+
+    loadMoreBtn.addEventListener('click', () => {
+      let shown = 0;
+      hiddenPosts.forEach(post => {
+        if (post.classList.contains('hidden') && shown < postsToShow) {
+          post.classList.remove('hidden');
+          shown++;
+        }
+      });
+
+      // Hide button if no more hidden posts
+      const remainingHidden = document.querySelectorAll('.blog-post.hidden');
+      if (remainingHidden.length === 0) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

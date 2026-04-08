@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Positive Mindset - PHEARUM</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Page-specific enhancements */
+    .mindset-section {
+      background: #ffffff;
+      color: #333;
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .mindset-section h2 {
+      font-size: 2.6rem;
+      color: #0078d7;
+      margin-bottom: 20px;
+    }
+
+    .mindset-section h3 {
+      color: #00bcd4;
+      margin-top: 25px;
+      font-size: 1.6rem;
+    }
+
+    .mindset-section p {
+      max-width: 750px;
+      margin: 0 auto 20px;
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .mindset-quote {
+      font-style: italic;
+      color: #0078d7;
+      margin-bottom: 30px;
+    }
+
+    .mission-list {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      padding-left: 20px;
+      list-style-type: "🌟 ";
+      color: #555;
+    }
+
+    .fact-card {
+      background: #f8faff;
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 700px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .fact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .fact-card h3 {
+      color: #0078d7;
+      margin-bottom: 15px;
+    }
+
+    .fact-text {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .fact-meta {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #26c6da, #80deea);
+      transform: scale(1.05);
+    }
+
+    .continue {
+      margin-top: 40px;
+      color: #555;
+    }
+
+    .continue a {
+      color: #0078d7;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .continue a:hover {
+      color: #00bcd4;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🧭 Header (from global style.css) -->
+  <header>
+    <div class="logo">PHEARUM</div>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- 🌟 Main Mindset Section -->
+  <main>
+    <section class="mindset-section">
+      <h2>Positive Mindset 🌟</h2>
+
+      <div class="about.html">
+        <h3>Empower Your Curiosity</h3>
+        <p class="mindset-quote">“A positive mind sees opportunity in everything — and science helps us understand why.”</p>
+
+        <p><strong>Vision:</strong> To build a world where positivity and knowledge create meaningful growth.</p>
+
+        <p><strong>Mission:</strong></p>
+        <ul class="mission-list">
+          <li>Inspire confidence through exploration and discovery.</li>
+          <li>Promote critical thinking with an optimistic outlook.</li>
+          <li>Encourage everyone to apply curiosity in daily life.</li>
+        </ul>
+
+        <p><strong>Mindset mantra:</strong> <em>Be curious. Stay kind. Grow stronger every day.</em></p>
+      </div>
+
+      <!-- 🌞 Daily Positive Reflection -->
+      <div class="fact-card">
+        <h3>Daily Positive Reflection ☀️</h3>
+        <p class="fact-text" id="mindset-text">Loading your daily positive insight…</p>
+        <p class="fact-meta" id="mindset-meta">Click below to reveal a new mindset thought.</p>
+        <button class="btn" id="new-mindset-btn">✨ New Thought</button>
+      </div>
+
+      <!-- 🔬 Science Fact -->
+      <div class="fact-card" role="region" aria-live="polite" aria-label="Fact of the day">
+        <h3>Science Fact of the Day 🔬</h3>
+        <div class="fact-text" id="fact-text">Loading an interesting science fact…</div>
+        <div class="fact-meta" id="fact-meta">Click below to discover another fact.</div>
+        <button class="btn" id="new-fact-btn">🔁 New Fact</button>
+      </div>
+
+      <div class="continue">
+        <p>Continue exploring on the <a href="blog.html">Blog</a>, or try fun <a href="experiments.html">Experiments</a> to learn by doing.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 📜 Footer -->
+  <footer>
+    <p>© 2025 PHEARUM. All Rights Reserved.</p>
+  </footer>
+
+  <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+
+  <script>
+    // 🔹 Toggle Menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.classList.toggle('open');
+      });
+    }
+
+    // 💭 Positive Mindset Thoughts
+    (function() {
+      const thoughts = [
+        { text: "Every sunrise brings a new chance to learn and grow.", source: "Daily mindset" },
+        { text: "Challenges are opportunities in disguise — face them with curiosity.", source: "Positive growth" },
+        { text: "When you change your thoughts, you change your energy and your world.", source: "Mind power" },
+        { text: "Curiosity fuels creativity — every question is a spark of discovery.", source: "Science & mindset" },
+        { text: "Positivity is believing that every problem has a beautiful solution.", source: "Growth wisdom" }
+      ];
+      const t = document.getElementById("mindset-text");
+      const m = document.getElementById("mindset-meta");
+      const b = document.getElementById("new-mindset-btn");
+      const pick = () => thoughts[Math.floor(Math.random() * thoughts.length)];
+      function show(x){ t.textContent = x.text; m.textContent = "Source: " + x.source; }
+      show(pick()); b.addEventListener("click",()=>show(pick()));
+    })();
+
+    // 🔬 Science Facts
+    (function() {
+      const facts = [
+        { text: "A teaspoon of honey = life work of 12 bees 🐝", source: "Nature" },
+        { text: "Bananas are slightly radioactive — potassium-40 🍌", source: "Chemistry" },
+        { text: "Octopuses have 3 hearts ❤️❤️❤️", source: "Marine biology" },
+        { text: "There are more stars than grains of sand ✨", source: "Cosmology" },
+        { text: "Your bones renew every ~10 years 🦴", source: "Biology" }
+      ];
+      const t = document.getElementById("fact-text");
+      const m = document.getElementById("fact-meta");
+      const b = document.getElementById("new-fact-btn");
+      const pick = () => facts[Math.floor(Math.random() * facts.length)];
+      function show(x){ t.textContent = x.text; m.textContent = "Source: " + x.source; }
+      show(pick()); b.addEventListener("click",()=>show(pick()));
+    })();
+  </script>
+</body>
+</html>
