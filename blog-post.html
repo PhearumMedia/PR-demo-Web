@@ -1,111 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHEARUM</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="logo">PHEARUM</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHEARUM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">PHEARUM</div>
+      <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Toggle menu"
+        aria-controls="navbar"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+      >
+        🌙
+      </button>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 id="post-title">Loading...</h1>
-      <p id="post-subtitle"></p>
-    </div>
-  </section>
-
-  <!-- Blog Post Content -->
-  <main>
-    <section class="blog-post-single">
-      <div class="blog-single-container">
-        <span class="blog-date" id="post-date"></span>
-        <img src="" alt="Blog Image" id="post-image">
-        <div class="blog-single-content" id="post-content">
-          <p>Loading post content...</p>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 id="post-title">Loading...</h1>
+        <p id="post-subtitle"></p>
       </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 PHEARUM. All Rights Reserved.
-  </footer>
+    <!-- Blog Post Content -->
+    <main>
+      <section class="blog-post-single">
+        <div class="blog-single-container">
+          <span class="blog-date" id="post-date"></span>
+          <img src="" alt="Blog Image" id="post-image" />
+          <div class="blog-single-content" id="post-content">
+            <p>Loading post content...</p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <!-- Floating Contact Button -->
-  <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+    <!-- Footer -->
+    <footer>&copy; 2026 PHEARUM. All Rights Reserved.</footer>
 
-  <!-- Script for dynamic post -->
-  <script>
-    // Define all blog posts
-    const blogPosts = {
-      1: {
-        title: "How to Build Your First Website",
-        subtitle: "Step-by-step guide for beginners",
-        date: "Oct 25, 2025",
-        image: "images/blog1.jpg",
-        content: `
-          <p>Learn the step-by-step process to create your first responsive website using HTML, CSS, and JavaScript.</p>
-          <p>Start by structuring your HTML, then style it with CSS and add interactivity with JavaScript.</p>
-        `
-      },
-      2: {
-        title: "Tips for Writing Clean Code",
-        subtitle: "Improve readability and maintainability",
-        date: "Oct 20, 2025",
-        image: "images/blog2.jpg",
-        content: `
-          <p>Discover practical tips to keep your code organized, readable, and maintainable.</p>
-          <p>Use consistent naming, modular code, and proper comments to improve your projects.</p>
-        `
+    <!-- Script for dynamic post -->
+    <script>
+      // Define all blog posts
+      const blogPosts = {
+        1: {
+          title: "A mountain valley with green hills",
+          subtitle: "natural landscape scene",
+          date: "Oct 25, 2025",
+          image: "images/blog1.jpg",
+          content: `
+          <p>🌄 Discover the Beauty of Nature: A Serene Mountain Landscape:</p>
+          <p>Nature has a unique way of calming the mind and refreshing the soul, and this stunning mountain landscape is a perfect example of that peaceful connection. Surrounded by rolling green hills and majestic peaks, this breathtaking view captures the essence of untouched natural beauty.</p>
+          <p>🌿 A Perfect Harmony of Land and Sky:</p>
+          <p>The vibrant green fields stretch gracefully across the foreground, creating a soft and inviting texture that draws the eye into the scene. These lush hills are a symbol of life and growth, contrasting beautifully with the rugged mountain ranges in the distance.</p>
+          <p>Above, the sky tells its own story. Sunlight breaks through scattered clouds, sending radiant beams across the valley. This natural lighting effect not only enhances the depth of the image but also creates a magical and almost dreamlike atmosphere.</p>
+          <p>⛰️ Majestic Mountains and Misty Valleys:</p>
+          <p>In the background, towering mountains rise layer by layer, each fading slightly into the mist. This natural gradient adds depth and perspective, making the landscape feel vast and endless. The mist drifting through the valleys brings a sense of mystery and tranquility, inviting viewers to imagine exploring these peaceful surroundings.</p>
+          <p>🌳 The Beauty of Untouched Nature:</p>
+          <p>To the side, clusters of trees stand quietly along the hillside, adding balance and richness to the scenery. There are no signs of urban life—just pure, untouched nature. This makes the landscape an ideal representation of escape, relaxation, and natural harmony.</p>
+          <p>🌍 Why Natural Landscapes Matter:</p>
+          <p>Spending time in nature—or even viewing scenes like this—has been proven to reduce stress and improve mental well-being. Landscapes like this remind us of the importance of preserving our environment and staying connected to the natural world.</p>
+          <p>📸 Perfect Inspiration for Travel and Photography:</p>
+          <p>This kind of scenery is a dream for photographers, travelers, and nature lovers alike. Whether you're planning your next adventure or simply looking for inspiration, landscapes like this offer endless opportunities for exploration and creativity.</p>
+        `,
+        },
+        2: {
+          title: "Tips for Writing Clean Code",
+          subtitle: "Improve readability and maintainability",
+          date: "Oct 20, 2025",
+          image: "images/blog2.jpg",
+          content: `
+          <p>🚢 Exploring the Majestic Fjords: Nature’s Masterpiece of Water and Mountains:</p>
+          <p>Few places on Earth capture the imagination quite like a fjord landscape. This breathtaking view showcases a deep blue waterway winding through towering green mountains, creating one of the most dramatic and serene natural scenes imaginable.</p>
+          <p>🌊 A Stunning Blend of Water and Mountains</p>
+          <p>At the heart of this landscape lies a calm, crystal-clear fjord, reflecting the sky above while guiding the eye through the valley. Large ships glide peacefully across the water, adding a sense of scale and quiet movement to the scene.</p>
+          <p>Surrounding the fjord, steep mountain walls rise sharply on both sides, covered in lush greenery. Their height and ruggedness create a powerful contrast with the smooth, tranquil surface of the water below.</p>
+          <p>⛰️ Towering Peaks and Scenic Valleys</p>
+          <p>In the distance, layers of mountains stretch toward the horizon, each one slightly softened by atmospheric haze. Some peaks are capped with patches of snow, hinting at cooler climates and higher elevations. These natural formations create depth and a sense of vastness that feels almost endless.</p>
+          <p>🛣️ A Journey Through Nature</p>
+          <p>Along the edge of the fjord, a winding road hugs the mountainside, offering what must be one of the most scenic drives in the world. Small settlements are visible near the shoreline, giving a glimpse of life harmoniously integrated with nature.</p>
+          <p>This balance between human presence and untouched wilderness makes the landscape even more captivating.</p>
+          <p>🌍 Why Fjords Are So Special</p>
+          <p>Fjords are formed by glaciers carving deep valleys over thousands of years, later filled by seawater. This geological process creates their signature steep cliffs and deep waters, making them unique and visually striking destinations.</p>
+          <p>They are not only beautiful but also rich in biodiversity and cultural history.</p>
+          <p>📸 A Dream Destination for Travelers</p>
+          <p>Whether you're a photographer, traveler, or nature enthusiast, scenes like this offer endless inspiration. From cruising along the fjord to hiking the surrounding mountains, every angle reveals a new perspective of natural beauty.</p>
+
+        `,
+        },
+        3: {
+          title: "Site News: New Theme Toggle",
+          subtitle: "Interactive theme and position memory",
+          date: "Apr 15, 2026",
+          image: "images/blog1.jpg",
+          content: `
+        <p>🌾 Endless Green Fields: The Beauty of Peaceful Countryside Landscapes:</p>
+        <p>There’s something deeply calming about wide-open fields stretching as far as the eye can see. This stunning countryside scene captures the simplicity and beauty of nature, where vibrant green crops sway gently under a bright blue sky.</p>
+        <p>🌿 A Sea of Green:</p>
+        <p>The foreground is filled with lush, thriving crops—likely wheat or barley—creating a rich green texture that feels alive and full of energy. The uniform rows and natural patterns guide the viewer’s eye toward the horizon, adding depth and harmony to the landscape.</p>
+        <p>☁️ A Sky Full of Life:</p>
+        <p>Above the fields, a vast blue sky is dotted with soft, drifting clouds. Sunlight filters through, casting gentle highlights and shadows across the land. This interplay of light enhances the vivid green tones and creates a warm, peaceful atmosphere.</p>
+        <p>🌄 Rolling Hills and Natural Patterns:</p>
+        <p>In the distance, smooth rolling hills rise gently, marked by subtle lines from agricultural activity. These patterns add a sense of order and rhythm, showing how human cultivation can blend beautifully with natural landscapes.</p>
+        <p>🌍 The Importance of Agricultural Landscapes:</p>
+        <p>Scenes like this are more than just beautiful—they represent the foundation of human life. Agricultural fields provide essential food resources and support communities around the world. Preserving and respecting these lands is vital for a sustainable future.</p>
+        <p>📸 Perfect for Relaxation and Inspiration:</p>
+        <p>Whether you’re a traveler, photographer, or someone seeking a moment of calm, landscapes like this offer a sense of peace and clarity. The open space, fresh air, and natural beauty create the perfect environment to relax and recharge.</p>
+      `,
+        },
+        4: {
+          title: "News: Projects Page Live",
+          subtitle: "Projects section added to the site",
+          date: "Apr 15, 2026",
+          image: "images/blog2.jpg",
+          content: `
+        <p>🌄 Sunrise Over the Mountains: A Peaceful Escape Into Nature:</p>
+        <p>There’s something magical about witnessing a sunrise in the mountains—where the world feels untouched, quiet, and full of possibility. This breathtaking scene captures the perfect harmony between rugged peaks, soft wildflowers, and a glowing horizon that signals the start of a new day</p>
+        <p>🌅 The Beauty of Mountain Sunrises:</p>
+        <p>As the sun slowly rises above the distant hills, it paints the sky in shades of orange, pink, and blue. The gentle light spreads across the landscape, illuminating layers of mountains and valleys below. This natural spectacle is not only visually stunning but also deeply calming for the mind and soul.</p>
+        <p>Mountain sunrises are often associated with:</p>
+        <ul>
+          <li>Fresh, crisp air</li>
+          <li>Serene silence</li>
+          <li>A sense of renewal and clarity</li>
+        </ul>
+        <p>🌼 Wildflowers in the Foreground:</p>
+        <p>In the foreground, delicate white wildflowers bloom among rocky terrain, adding contrast and life to the scene. These flowers symbolize resilience—thriving even in harsh mountain conditions. Their presence enhances the composition, making the image feel vibrant and alive.</p>
+        <p>🏔️ Layers of Mountains and Depth:</p>
+        <p>The image showcases multiple layers of mountain ranges fading into the distance. This creates a sense of depth and scale, reminding us of nature’s vastness. The soft haze between the layers adds a dreamy, almost surreal quality to the view.</p>
+        <p>🌍 Why Nature Photography Matters:</p>
+        <p>Images like this are more than just beautiful—they inspire people to:</p>
+        <ul>
+          <li>Explore the outdoors</li>
+          <li>Appreciate natural landscapes</li>
+          <li>Practice mindfulness and relaxation</li>
+        </ul>
+        <p>Nature photography also plays a key role in promoting environmental awareness and conservation.</p>
+        <p>📸 Tips for Capturing a Similar Shot:</p>
+        <p>If you want to capture a stunning mountain sunrise like this, consider these tips:</p>
+        <ul>
+          <li>Arrive early to set up before sunrise</li>
+          <li>Use a wide-angle lens to capture the full landscape</li>
+          <li>Include foreground elements like flowers or rocks</li>
+          <li>Shoot during golden hour for soft, warm lighting</li>
+          <li>Use a tripod for stability in low light</li>
+        </ul>
+        <p>✨ Final Thoughts:</p>
+        <p>This mountain sunrise scene is a reminder of how beautiful and peaceful the natural world can be. Whether you’re a photographer, traveler, or nature lover, moments like these are worth experiencing and preserving.</p>
+      `,
+        },
+        // Add more posts here as needed
+      };
+
+      // Get post ID from URL
+      const params = new URLSearchParams(window.location.search);
+      const postId = params.get("id") || "1";
+
+      // Get elements
+      const titleEl = document.getElementById("post-title");
+      const subtitleEl = document.getElementById("post-subtitle");
+      const dateEl = document.getElementById("post-date");
+      const imageEl = document.getElementById("post-image");
+      const contentEl = document.getElementById("post-content");
+
+      if (blogPosts[postId]) {
+        const post = blogPosts[postId];
+        titleEl.textContent = post.title;
+        subtitleEl.textContent = post.subtitle;
+        dateEl.textContent = post.date;
+        imageEl.src = post.image;
+        imageEl.alt = post.title;
+        contentEl.innerHTML = post.content;
+      } else {
+        titleEl.textContent = "Post Not Found";
+        subtitleEl.textContent = "";
+        dateEl.textContent = "";
+        imageEl.style.display = "none";
+        contentEl.innerHTML =
+          "<p>Sorry, the post you are looking for does not exist.</p>";
       }
-      // Add more posts here as needed
-    };
 
-    // Get post ID from URL
-    const params = new URLSearchParams(window.location.search);
-    const postId = params.get('id');
+      // Mobile menu + theme toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbarEl = document.getElementById("navbar");
+      const themeToggle = document.getElementById("theme-toggle");
+      if (menuToggle && navbarEl) {
+        menuToggle.addEventListener("click", () => {
+          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+          navbarEl.classList.toggle("active");
+          menuToggle.classList.toggle("open");
+          menuToggle.setAttribute("aria-expanded", String(!expanded));
+        });
+      }
 
-    // Get elements
-    const titleEl = document.getElementById('post-title');
-    const subtitleEl = document.getElementById('post-subtitle');
-    const dateEl = document.getElementById('post-date');
-    const imageEl = document.getElementById('post-image');
-    const contentEl = document.getElementById('post-content');
+      (function () {
+        if (!themeToggle) return;
+        const posKey = "theme-toggle-pos";
+        const applyTheme = (isDark) => {
+          document.documentElement.classList.toggle("dark", isDark);
+          themeToggle.setAttribute("aria-pressed", String(!!isDark));
+          themeToggle.textContent = isDark ? "☀️" : "🌙";
+        };
+        const stored = localStorage.getItem("site-theme");
+        if (stored) applyTheme(stored === "dark");
+        else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        )
+          applyTheme(true);
 
-    if (blogPosts[postId]) {
-      const post = blogPosts[postId];
-      titleEl.textContent = post.title;
-      subtitleEl.textContent = post.subtitle;
-      dateEl.textContent = post.date;
-      imageEl.src = post.image;
-      imageEl.alt = post.title;
-      contentEl.innerHTML = post.content;
-    } else {
-      titleEl.textContent = "Post Not Found";
-      subtitleEl.textContent = "";
-      dateEl.textContent = "";
-      imageEl.style.display = "none";
-      contentEl.innerHTML = "<p>Sorry, the post you are looking for does not exist.</p>";
-    }
-  </script>
-</body>
-  <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+        const storedPos = localStorage.getItem(posKey);
+        if (storedPos) {
+          try {
+            const p = JSON.parse(storedPos);
+            themeToggle.style.left = p.left + "px";
+            themeToggle.style.top = p.top + "px";
+            themeToggle.style.right = "auto";
+          } catch (e) {}
+        }
+
+        themeToggle.addEventListener("click", () => {
+          const isDark = document.documentElement.classList.toggle("dark");
+          themeToggle.setAttribute("aria-pressed", String(!!isDark));
+          themeToggle.textContent = isDark ? "☀️" : "🌙";
+          localStorage.setItem("site-theme", isDark ? "dark" : "light");
+        });
+
+        // draggable
+        let dragging = false,
+          startX = 0,
+          startY = 0,
+          startLeft = 0,
+          startTop = 0;
+        themeToggle.addEventListener("pointerdown", (e) => {
+          dragging = true;
+          themeToggle.setPointerCapture(e.pointerId);
+          startX = e.clientX;
+          startY = e.clientY;
+          const r = themeToggle.getBoundingClientRect();
+          startLeft = r.left;
+          startTop = r.top;
+          e.preventDefault();
+        });
+        window.addEventListener("pointermove", (e) => {
+          if (!dragging) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          let left = Math.max(
+            8,
+            Math.min(
+              window.innerWidth - themeToggle.offsetWidth - 8,
+              Math.round(startLeft + dx),
+            ),
+          );
+          let top = Math.max(
+            8,
+            Math.min(
+              window.innerHeight - themeToggle.offsetHeight - 8,
+              Math.round(startTop + dy),
+            ),
+          );
+          themeToggle.style.left = left + "px";
+          themeToggle.style.top = top + "px";
+          themeToggle.style.right = "auto";
+        });
+        window.addEventListener("pointerup", (e) => {
+          if (!dragging) return;
+          dragging = false;
+          try {
+            themeToggle.releasePointerCapture(e.pointerId);
+          } catch {}
+          const r = themeToggle.getBoundingClientRect();
+          localStorage.setItem(
+            posKey,
+            JSON.stringify({
+              left: Math.round(r.left),
+              top: Math.round(r.top),
+            }),
+          );
+        });
+        themeToggle.addEventListener("dblclick", () => {
+          themeToggle.style.removeProperty("left");
+          themeToggle.style.removeProperty("top");
+          themeToggle.style.right = "16px";
+          themeToggle.style.top = "16px";
+          localStorage.removeItem(posKey);
+        });
+      })();
+    </script>
+    <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+  </body>
 </html>
