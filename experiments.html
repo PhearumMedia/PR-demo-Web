@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiments - PHEARUM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Experiments Page Styles */
+    .experiments-hero {
+      background: linear-gradient(135deg, rgba(0,188,212,0.9), rgba(0,150,180,0.9)), url('images/BG.jpg') no-repeat center/cover;
+      background-attachment: fixed;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .experiments-hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .experiments-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .experiments-hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    /* Experiments Container */
+    .experiments-section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .experiments-section h2 {
+      font-size: 2.5rem;
+      color: #0078d7;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    /* Experiment Grid */
+    .experiments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    /* Experiment Card */
+    .experiment-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .experiment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    }
+
+    .experiment-card-header {
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      padding: 30px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .experiment-card-header h3 {
+      font-size: 1.6rem;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .experiment-emoji {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .experiment-level {
+      font-size: 0.85rem;
+      background: rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .experiment-card-body {
+      padding: 25px;
+    }
+
+    .experiment-description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .experiment-what {
+      background: #f8f9fa;
+      padding: 15px;
+      border-left: 4px solid #00bcd4;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .experiment-what strong {
+      color: #0078d7;
+    }
+
+    .experiment-btn {
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      color: #000;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .experiment-btn:hover {
+      background: linear-gradient(135deg, #26c6da, #80deea);
+      transform: scale(1.02);
+    }
+
+    /* Interactive Experiment */
+    .interactive-section {
+      background: linear-gradient(135deg, #f8faff, #e3f2fd);
+      padding: 60px 20px;
+      border-radius: 15px;
+      margin-top: 80px;
+    }
+
+    .interactive-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .interactive-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .interactive-description {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .experiment-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .demo-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .demo-input input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #00bcd4;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .demo-input input:focus {
+      outline: none;
+      border-color: #0078d7;
+      box-shadow: 0 0 8px rgba(0,120,215,0.2);
+    }
+
+    .demo-btn {
+      background: linear-gradient(135deg, #00bcd4, #00e5ff);
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .demo-btn:hover {
+      background: linear-gradient(135deg, #26c6da, #80deea);
+      transform: scale(1.05);
+    }
+
+    .demo-result {
+      background: #f0f8ff;
+      border-left: 4px solid #00bcd4;
+      padding: 20px;
+      border-radius: 8px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #0078d7;
+      font-weight: 600;
+      display: none;
+    }
+
+    .demo-result.show {
+      display: flex;
+    }
+
+    /* Dark Theme */
+    .dark .experiment-card {
+      background: #1a1a2e;
+      border-color: #2a2a3e;
+    }
+
+    .dark .experiment-card-body {
+      color: #e6eef8;
+    }
+
+    .dark .experiment-description,
+    .dark .interactive-description {
+      color: #b0b8c8;
+    }
+
+    .dark .experiment-what {
+      background: rgba(0,120,215,0.1);
+      color: #b0b8c8;
+    }
+
+    .dark .experiment-what strong {
+      color: #00e5ff;
+    }
+
+    .dark .interactive-section {
+      background: linear-gradient(135deg, #081226, #0a1428);
+    }
+
+    .dark .interactive-container {
+      background: #1a1a2e;
+    }
+
+    .dark .demo-input input {
+      background: #2a2a3e;
+      color: #e6eef8;
+      border-color: #00bcd4;
+    }
+
+    .dark .demo-result {
+      background: rgba(0,188,212,0.1);
+      color: #00e5ff;
+    }
+
+    @media (max-width: 768px) {
+      .experiments-hero h1 {
+        font-size: 2rem;
+      }
+
+      .experiments-section {
+        padding: 40px 15px;
+      }
+
+      .experiments-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .interactive-container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌟 Header -->
+  <header>
+    <div class="logo">PHEARUM</div>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-controls="navbar" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">🌙</button>
+  </header>
+
+  <!-- 🔬 Hero Section -->
+  <section class="experiments-hero">
+    <div class="experiments-hero-content">
+      <h1>🔬 Experiments & Discoveries</h1>
+      <p>Learn by doing! Interactive experiments to explore science, psychology, and growth mindset through hands-on activities.</p>
+    </div>
+  </section>
+
+  <!-- 🧪 Main Content -->
+  <main>
+    <!-- Experiment Cards -->
+    <section class="experiments-section">
+      <h2>Featured Experiments</h2>
+      <div class="experiments-grid">
+        <!-- Experiment 1 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">🧠</span>
+            <h3>Brain Teaser Challenge</h3>
+            <span class="experiment-level">Easy</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">Test your logical thinking with mind-bending puzzles that reveal how your brain processes information.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Problem-solving, pattern recognition, critical thinking.
+            </div>
+            <button class="experiment-btn" onclick="scrollToDemo()">Start Experiment</button>
+          </div>
+        </div>
+
+        <!-- Experiment 2 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">🎨</span>
+            <h3>Color Psychology</h3>
+            <span class="experiment-level">Beginner</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">Discover how colors influence emotions and perception. Explore the psychology behind color choices.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Color theory, emotional responses, design psychology.
+            </div>
+            <a href="#interactive" class="experiment-btn">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Experiment 3 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">🧬</span>
+            <h3>DNA & Genetics Basics</h3>
+            <span class="experiment-level">Intermediate</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">Understand the building blocks of life! Learn how DNA works and affects heredity.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Genetics, heredity, molecular biology basics.
+            </div>
+            <a href="#" class="experiment-btn">Explore</a>
+          </div>
+        </div>
+
+        <!-- Experiment 4 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">⚛️</span>
+            <h3>Physics in Motion</h3>
+            <span class="experiment-level">Intermediate</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">See physics in action! Understand forces, motion, and energy through interactive simulations.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Newton's laws, momentum, energy conservation.
+            </div>
+            <a href="#" class="experiment-btn">Discover</a>
+          </div>
+        </div>
+
+        <!-- Experiment 5 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">🧠</span>
+            <h3>Memory Palace Technique</h3>
+            <span class="experiment-level">Easy</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">Master ancient memory techniques used by the world's greatest minds to remember anything.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Memory techniques, mnemonics, learning strategies.
+            </div>
+            <a href="#" class="experiment-btn">Try It</a>
+          </div>
+        </div>
+
+        <!-- Experiment 6 -->
+        <div class="experiment-card">
+          <div class="experiment-card-header">
+            <span class="experiment-emoji">🌊</span>
+            <h3>Ocean & Climate Science</h3>
+            <span class="experiment-level">Beginner</span>
+          </div>
+          <div class="experiment-card-body">
+            <p class="experiment-description">Explore how oceans regulate our climate and why they're crucial for life on Earth.</p>
+            <div class="experiment-what">
+              <strong>What you'll learn:</strong> Oceanography, climate systems, environmental science.
+            </div>
+            <a href="#" class="experiment-btn">Learn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="interactive-section" id="interactive">
+      <h2>Try It Now: Mind Calculator 🧮</h2>
+      <div class="interactive-container">
+        <p class="interactive-description">
+          Can you predict the result before the calculator? Try this classic puzzle that reveals how mathematical patterns work in surprising ways!
+        </p>
+        <div class="experiment-demo">
+          <div class="demo-input">
+            <input type="number" id="demoNumber" placeholder="Enter any number (1-9)" min="1" max="9" />
+            <button class="demo-btn" onclick="calculateMagic()">Calculate</button>
+          </div>
+          <div class="demo-result" id="demoResult"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ⚓ Footer -->
+  <footer>
+    <p>© 2025 PHEARUM. All rights reserved.</p>
+  </footer>
+
+  <!-- 🌟 Floating Contact Button -->
+  <a href="contact.html" class="floating-contact-btn">Contact Me</a>
+
+  <!-- 📜 Scripts -->
+  <script>
+    // Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        navbar.classList.toggle('active');
+        menuToggle.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
+
+    // Theme Toggle
+    (function () {
+      if (!themeToggle) return;
+      const posKey = 'theme-toggle-pos';
+      const applyTheme = (isDark) => {
+        document.documentElement.classList.toggle('dark', isDark);
+        themeToggle.setAttribute('aria-pressed', String(!!isDark));
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+      };
+      const stored = localStorage.getItem('site-theme');
+      if (stored) applyTheme(stored === 'dark');
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme(true);
+
+      const storedPos = localStorage.getItem(posKey);
+      if (storedPos) {
+        try { const p = JSON.parse(storedPos); themeToggle.style.left = p.left + 'px'; themeToggle.style.top = p.top + 'px'; themeToggle.style.right = 'auto'; } catch (e) {}
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        themeToggle.setAttribute('aria-pressed', String(!!isDark));
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+      });
+
+      let dragging = false, startX = 0, startY = 0, startLeft = 0, startTop = 0;
+      themeToggle.addEventListener('pointerdown', (e) => { dragging = true; themeToggle.setPointerCapture(e.pointerId); startX = e.clientX; startY = e.clientY; const r = themeToggle.getBoundingClientRect(); startLeft = r.left; startTop = r.top; e.preventDefault(); });
+      window.addEventListener('pointermove', (e) => { if (!dragging) return; const dx = e.clientX - startX; const dy = e.clientY - startY; let left = Math.max(8, Math.min(window.innerWidth - themeToggle.offsetWidth - 8, Math.round(startLeft + dx))); let top = Math.max(8, Math.min(window.innerHeight - themeToggle.offsetHeight - 8, Math.round(startTop + dy))); themeToggle.style.left = left + 'px'; themeToggle.style.top = top + 'px'; themeToggle.style.right = 'auto'; });
+      window.addEventListener('pointerup', (e) => { if (!dragging) return; dragging = false; try { themeToggle.releasePointerCapture(e.pointerId); } catch {} const r = themeToggle.getBoundingClientRect(); localStorage.setItem(posKey, JSON.stringify({ left: Math.round(r.left), top: Math.round(r.top) })); });
+      themeToggle.addEventListener('dblclick', () => { themeToggle.style.removeProperty('left'); themeToggle.style.removeProperty('top'); themeToggle.style.right = '16px'; themeToggle.style.top = '16px'; localStorage.removeItem(posKey); });
+    })();
+
+    // Magic Calculator Demo
+    function calculateMagic() {
+      const num = parseInt(document.getElementById('demoNumber').value);
+      const result = document.getElementById('demoResult');
+      
+      if (isNaN(num) || num < 1 || num > 9) {
+        result.textContent = '⚠️ Please enter a number between 1 and 9';
+        result.classList.add('show');
+        return;
+      }
+
+      // Magic formula
+      const step1 = num * 2;
+      const step2 = step1 + 5;
+      const step3 = step2 * 50;
+      const step4 = step3 + 1776;
+      const step5 = step4 - 1926;
+      const finalResult = step5 / num;
+
+      result.textContent = `✨ The magic number is: ${finalResult}`;
+      result.classList.add('show');
+    }
+
+    // Enter key support for demo
+    document.getElementById('demoNumber').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') calculateMagic();
+    });
+
+    // Scroll to interactive demo
+    function scrollToDemo() {
+      document.getElementById('interactive').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>

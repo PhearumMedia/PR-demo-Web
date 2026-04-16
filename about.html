@@ -139,7 +139,7 @@
     <section class="mindset-section">
       <h2>Positive Mindset 🌟</h2>
 
-      <div class="about.html">
+      <div class="about-content">
         <h3>Empower Your Curiosity</h3>
         <p class="mindset-quote">“A positive mind sees opportunity in everything — and science helps us understand why.”</p>
 
@@ -189,6 +189,7 @@
     const menuToggle = document.getElementById('menu-toggle');
     const navbar = document.getElementById('navbar');
     const themeToggle = document.getElementById('theme-toggle');
+    
     if (menuToggle && navbar) {
       menuToggle.addEventListener('click', () => {
         const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -198,17 +199,15 @@
       });
     }
 
-    // Theme toggle (persist in localStorage) + draggable position
+    // Theme Toggle
     (function () {
       if (!themeToggle) return;
-
       const posKey = 'theme-toggle-pos';
       const applyTheme = (isDark) => {
         document.documentElement.classList.toggle('dark', isDark);
         themeToggle.setAttribute('aria-pressed', String(!!isDark));
         themeToggle.textContent = isDark ? '☀️' : '🌙';
       };
-
       const stored = localStorage.getItem('site-theme');
       if (stored) applyTheme(stored === 'dark');
       else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) applyTheme(true);
@@ -225,7 +224,6 @@
         localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
       });
 
-      // Draggable
       let dragging = false, startX = 0, startY = 0, startLeft = 0, startTop = 0;
       themeToggle.addEventListener('pointerdown', (e) => { dragging = true; themeToggle.setPointerCapture(e.pointerId); startX = e.clientX; startY = e.clientY; const r = themeToggle.getBoundingClientRect(); startLeft = r.left; startTop = r.top; e.preventDefault(); });
       window.addEventListener('pointermove', (e) => { if (!dragging) return; const dx = e.clientX - startX; const dy = e.clientY - startY; let left = Math.max(8, Math.min(window.innerWidth - themeToggle.offsetWidth - 8, Math.round(startLeft + dx))); let top = Math.max(8, Math.min(window.innerHeight - themeToggle.offsetHeight - 8, Math.round(startTop + dy))); themeToggle.style.left = left + 'px'; themeToggle.style.top = top + 'px'; themeToggle.style.right = 'auto'; });
@@ -233,39 +231,41 @@
       themeToggle.addEventListener('dblclick', () => { themeToggle.style.removeProperty('left'); themeToggle.style.removeProperty('top'); themeToggle.style.right = '16px'; themeToggle.style.top = '16px'; localStorage.removeItem(posKey); });
     })();
 
-    // 💭 Positive Mindset Thoughts
-    (function() {
-      const thoughts = [
-        { text: "Every sunrise brings a new chance to learn and grow.", source: "Daily mindset" },
-        { text: "Challenges are opportunities in disguise — face them with curiosity.", source: "Positive growth" },
-        { text: "When you change your thoughts, you change your energy and your world.", source: "Mind power" },
-        { text: "Curiosity fuels creativity — every question is a spark of discovery.", source: "Science & mindset" },
-        { text: "Positivity is believing that every problem has a beautiful solution.", source: "Growth wisdom" }
-      ];
-      const t = document.getElementById("mindset-text");
-      const m = document.getElementById("mindset-meta");
-      const b = document.getElementById("new-mindset-btn");
-      const pick = () => thoughts[Math.floor(Math.random() * thoughts.length)];
-      function show(x){ t.textContent = x.text; m.textContent = "Source: " + x.source; }
-      show(pick()); b.addEventListener("click",()=>show(pick()));
-    })();
+    // Daily Mindset & Science Facts
+    const mindsetThoughts = [
+      "Success is the sum of small efforts repeated day in and day out.",
+      "Your potential is endless. Your only limit is your belief.",
+      "Every expert was once a beginner who refused to give up.",
+      "Progress, not perfection, is the goal.",
+      "The best way to predict the future is to create it."
+    ];
 
-    // 🔬 Science Facts
-    (function() {
-      const facts = [
-        { text: "A teaspoon of honey = life work of 12 bees 🐝", source: "Nature" },
-        { text: "Bananas are slightly radioactive — potassium-40 🍌", source: "Chemistry" },
-        { text: "Octopuses have 3 hearts ❤️❤️❤️", source: "Marine biology" },
-        { text: "There are more stars than grains of sand ✨", source: "Cosmology" },
-        { text: "Your bones renew every ~10 years 🦴", source: "Biology" }
-      ];
-      const t = document.getElementById("fact-text");
-      const m = document.getElementById("fact-meta");
-      const b = document.getElementById("new-fact-btn");
-      const pick = () => facts[Math.floor(Math.random() * facts.length)];
-      function show(x){ t.textContent = x.text; m.textContent = "Source: " + x.source; }
-      show(pick()); b.addEventListener("click",()=>show(pick()));
-    })();
+    const scienceFacts = [
+      "Your brain can rewire itself through neuroplasticity, even in adulthood.",
+      "Positive thinking activates different brain regions involved in problem-solving.",
+      "Exercise increases BDNF, a protein that supports brain health and learning.",
+      "Learning a new skill creates new neural pathways in your brain.",
+      "The brain releases dopamine during moments of achievement and growth."
+    ];
+
+    const mindsetBtn = document.getElementById('new-mindset-btn');
+    const mindsetText = document.getElementById('mindset-text');
+    const factBtn = document.getElementById('new-fact-btn');
+    const factText = document.getElementById('fact-text');
+
+    if (mindsetBtn) {
+      mindsetBtn.addEventListener('click', () => {
+        const randomThought = mindsetThoughts[Math.floor(Math.random() * mindsetThoughts.length)];
+        mindsetText.textContent = randomThought;
+      });
+    }
+
+    if (factBtn) {
+      factBtn.addEventListener('click', () => {
+        const randomFact = scienceFacts[Math.floor(Math.random() * scienceFacts.length)];
+        factText.textContent = randomFact;
+      });
+    }
   </script>
 </body>
 </html>

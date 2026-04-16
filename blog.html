@@ -16,7 +16,7 @@
   <!-- Header -->
   <header>
     <div class="logo">PHEARUM</div>
-    <nav>
+    <nav id="navbar">
       <a href="index.html">Home</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="about.html">About</a>
@@ -33,7 +33,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>My Blog</h1>
+      <h1>📚 My Blog</h1>
       <p>Latest news, tutorials, and articles</p>
     </div>
   </section>
@@ -110,31 +110,13 @@ The sky is the focal point of the light, with the sun positioned low on the hori
 
   <!-- Load More Script -->
   <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const hiddenPosts = document.querySelectorAll('.blog-post.hidden');
-
-    let postsToShow = 2; // Number of posts to show each time
-
-    loadMoreBtn.addEventListener('click', () => {
-      let shown = 0;
-      hiddenPosts.forEach(post => {
-        if (post.classList.contains('hidden') && shown < postsToShow) {
-          post.classList.remove('hidden');
-          shown++;
-        }
-      });
-
-      // Hide button if no more hidden posts
-      const remainingHidden = document.querySelectorAll('.blog-post.hidden');
-      if (remainingHidden.length === 0) {
-        loadMoreBtn.style.display = 'none';
-      }
-    });
-
-    // Mobile menu + theme toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.querySelector('nav');
     const themeToggle = document.getElementById('theme-toggle');
+
+    // Menu Toggle
     if (menuToggle && navbar) {
       menuToggle.addEventListener('click', () => {
         const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -144,6 +126,24 @@ The sky is the focal point of the light, with the sun positioned low on the hori
       });
     }
 
+    // Load More Posts
+    let postsToShow = 2;
+    loadMoreBtn.addEventListener('click', () => {
+      let shown = 0;
+      hiddenPosts.forEach(post => {
+        if (post.classList.contains('hidden') && shown < postsToShow) {
+          post.classList.remove('hidden');
+          shown++;
+        }
+      });
+
+      const remainingHidden = document.querySelectorAll('.blog-post.hidden');
+      if (remainingHidden.length === 0) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
+
+    // Theme Toggle
     (function () {
       if (!themeToggle) return;
       const posKey = 'theme-toggle-pos';
@@ -168,7 +168,6 @@ The sky is the focal point of the light, with the sun positioned low on the hori
         localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
       });
 
-      // draggable
       let dragging = false, startX = 0, startY = 0, startLeft = 0, startTop = 0;
       themeToggle.addEventListener('pointerdown', (e) => { dragging = true; themeToggle.setPointerCapture(e.pointerId); startX = e.clientX; startY = e.clientY; const r = themeToggle.getBoundingClientRect(); startLeft = r.left; startTop = r.top; e.preventDefault(); });
       window.addEventListener('pointermove', (e) => { if (!dragging) return; const dx = e.clientX - startX; const dy = e.clientY - startY; let left = Math.max(8, Math.min(window.innerWidth - themeToggle.offsetWidth - 8, Math.round(startLeft + dx))); let top = Math.max(8, Math.min(window.innerHeight - themeToggle.offsetHeight - 8, Math.round(startTop + dy))); themeToggle.style.left = left + 'px'; themeToggle.style.top = top + 'px'; themeToggle.style.right = 'auto'; });
