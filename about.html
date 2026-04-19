@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Positive Mindset - PHEARUM</title>
+  <meta name="theme-color" content="#0078d7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#071023" media="(prefers-color-scheme: dark)">
+  <meta name="msapplication-TileColor" content="#0078d7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.svg">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="images/favicon.svg">
+  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#0078d7">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Page-specific enhancements */
@@ -113,10 +123,53 @@
     .continue a:hover {
       color: #00bcd4;
     }
+
+    .continue .continue-btn {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+    }
+
+    .dark .mindset-section {
+      background: #0b1323;
+      color: #d6e0f0;
+    }
+
+    .dark .mindset-section h2,
+    .dark .fact-card h3,
+    .dark .continue a {
+      color: #00e5ff;
+    }
+
+    .dark .mindset-section p,
+    .dark .mission-list,
+    .dark .continue,
+    .dark .fact-meta {
+      color: #b2bfd4;
+    }
+
+    .dark .mindset-quote {
+      color: #7fdfff;
+    }
+
+    .dark .fact-card {
+      background: #111b2f;
+      border-color: #22314f;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .dark .fact-text {
+      color: #e6eef8;
+    }
+
+    .dark .continue .continue-btn {
+      color: #001018;
+    }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <!-- 🧭 Header (from global style.css) -->
   <header>
     <div class="logo">PHEARUM</div>
@@ -135,24 +188,24 @@
   </header>
 
   <!-- 🌟 Main Mindset Section -->
-  <main>
+  <main id="main">
     <section class="mindset-section">
       <h2>Positive Mindset 🌟</h2>
 
       <div class="about-content">
-        <h3>Empower Your Curiosity</h3>
-        <p class="mindset-quote">“A positive mind sees opportunity in everything — and science helps us understand why.”</p>
+        <h3>Grow with Curiosity</h3>
+        <p class="mindset-quote">“A positive mindset helps us see opportunities, and science helps us understand them.”</p>
 
-        <p><strong>Vision:</strong> To build a world where positivity and knowledge create meaningful growth.</p>
+        <p><strong>Vision:</strong> Build a world where positivity and knowledge help people grow.</p>
 
         <p><strong>Mission:</strong></p>
         <ul class="mission-list">
-          <li>Inspire confidence through exploration and discovery.</li>
-          <li>Promote critical thinking with an optimistic outlook.</li>
-          <li>Encourage everyone to apply curiosity in daily life.</li>
+          <li>Build confidence through learning and discovery.</li>
+          <li>Teach clear thinking with a positive mindset.</li>
+          <li>Help everyone use curiosity in everyday life.</li>
         </ul>
 
-        <p><strong>Mindset mantra:</strong> <em>Be curious. Stay kind. Grow stronger every day.</em></p>
+        <p><strong>Mindset mantra:</strong> <em>Stay curious. Stay kind. Keep growing.</em></p>
       </div>
 
       <!-- 🌞 Daily Positive Reflection -->
@@ -172,14 +225,15 @@
       </div>
 
       <div class="continue">
-        <p>Continue exploring on the <a href="blog.html">Blog</a>, or try fun <a href="experiments.html">Experiments</a> to learn by doing.</p>
+        <p>Read more ideas and simple lessons on the <a href="blog.html">Blog</a>.</p>
+        <a href="experiments.html" class="btn continue-btn" aria-label="Go to experiments page">Experiments</a>
       </div>
     </section>
   </main>
 
   <!-- 📜 Footer -->
   <footer>
-    <p>© 2025 PHEARUM. All Rights Reserved.</p>
+    <p>© 2026 PHEARUM. All Rights Reserved.</p>
   </footer>
 
   <a href="contact.html" class="floating-contact-btn">Contact Me</a>
@@ -250,21 +304,45 @@
 
     const mindsetBtn = document.getElementById('new-mindset-btn');
     const mindsetText = document.getElementById('mindset-text');
+    const mindsetMeta = document.getElementById('mindset-meta');
     const factBtn = document.getElementById('new-fact-btn');
     const factText = document.getElementById('fact-text');
+    const factMeta = document.getElementById('fact-meta');
+    let lastMindsetIndex = -1;
+    let lastFactIndex = -1;
+
+    function pickRandomIndex(length, previousIndex) {
+      if (length <= 1) return 0;
+      let index = Math.floor(Math.random() * length);
+      while (index === previousIndex) {
+        index = Math.floor(Math.random() * length);
+      }
+      return index;
+    }
+
+    function refreshMindset() {
+      const index = pickRandomIndex(mindsetThoughts.length, lastMindsetIndex);
+      lastMindsetIndex = index;
+      mindsetText.textContent = mindsetThoughts[index];
+      if (mindsetMeta) mindsetMeta.textContent = 'Click below to reveal another mindset thought.';
+    }
+
+    function refreshFact() {
+      const index = pickRandomIndex(scienceFacts.length, lastFactIndex);
+      lastFactIndex = index;
+      factText.textContent = scienceFacts[index];
+      if (factMeta) factMeta.textContent = 'Click below to discover another fact.';
+    }
+
+    refreshMindset();
+    refreshFact();
 
     if (mindsetBtn) {
-      mindsetBtn.addEventListener('click', () => {
-        const randomThought = mindsetThoughts[Math.floor(Math.random() * mindsetThoughts.length)];
-        mindsetText.textContent = randomThought;
-      });
+      mindsetBtn.addEventListener('click', refreshMindset);
     }
 
     if (factBtn) {
-      factBtn.addEventListener('click', () => {
-        const randomFact = scienceFacts[Math.floor(Math.random() * scienceFacts.length)];
-        factText.textContent = randomFact;
-      });
+      factBtn.addEventListener('click', refreshFact);
     }
   </script>
 </body>

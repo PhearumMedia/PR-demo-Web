@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <!-- 🌟 Header -->
   <header>
     <div class="logo">PHEARUM</div>
@@ -27,7 +28,7 @@
   </header>
 
   <!-- 🧭 Main Content -->
-  <main>
+  <main id="main">
     <!-- 📞 Contact Section -->
     <section id="contact" class="contact-section">
       <div class="contact-container">
@@ -41,19 +42,19 @@
           <div class="contact-item">
             <span class="contact-item-icon">✉️</span>
             <h3>Email</h3>
-            <a href="mailto:info@phearum.vip" target="_blank">Roath Phearum</a>
+            <a href="mailto:info@phearum.vip" target="_blank" rel="noopener noreferrer">Roath Phearum</a>
           </div>
 
           <div class="contact-item">
             <span class="contact-item-icon">𝕏</span>
             <h3>Twitter / X</h3>
-            <a href="https://x.com/RoathPhearum" target="_blank">Roath Phearum</a>
+            <a href="https://x.com/RoathPhearum" target="_blank" rel="noopener noreferrer">Roath Phearum</a>
           </div>
 
           <div class="contact-item">
             <span class="contact-item-icon">👥</span>
             <h3>Facebook</h3>
-            <a href="https://facebook.com/RoathPhearum" target="_blank">Roath Phearum</a>
+            <a href="https://facebook.com/RoathPhearum" target="_blank" rel="noopener noreferrer">Roath Phearum</a>
           </div>
         </div>
 
@@ -72,6 +73,7 @@
             <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
 
             <button type="submit" class="btn">Send Message</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -80,7 +82,7 @@
 
   <!-- ⚓ Footer -->
   <footer>
-    <p>© 2025 PHEARUM. All rights reserved.</p>
+    <p>© 2026 PHEARUM. All rights reserved.</p>
   </footer>
 
   <!-- 📜 Script -->
@@ -145,6 +147,24 @@
 
       observer.observe(contactForm);
     }
+    // Contact form feedback for static hosting
+    const formStatus = document.getElementById('form-status');
+    if (contactForm && formStatus) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        formStatus.textContent = 'Thanks! Your message is ready to send.';
+        formStatus.classList.add('show');
+
+        setTimeout(() => {
+          contactForm.reset();
+          if (submitBtn) submitBtn.disabled = false;
+        }, 400);
+      });
+    }
+
   </script>
 </body>
 

@@ -1143,6 +1143,22 @@ main p {
   transform: translateY(-1px) scale(0.98);
 }
 
+.form-status {
+  margin-top: 14px;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 600;
+  color: #0078d7;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.form-status.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* 🎯 Load More Button */
 .load-more-container {
   text-align: center;
@@ -1163,6 +1179,39 @@ main p {
 .load-more-btn:hover {
   background: linear-gradient(135deg, #26c6da, #80deea);
   transform: scale(1.05);
+}
+
+.experiments-cta {
+  margin-top: 18px;
+}
+
+.btn-experiments {
+  display: inline-block;
+  min-width: 220px;
+  padding: 13px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #041022;
+  background: linear-gradient(135deg, #00d5ff 0%, #00ffc6 50%, #7bf0ff 100%);
+  box-shadow: 0 10px 30px rgba(0, 170, 255, 0.28);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+}
+
+.btn-experiments:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 34px rgba(0, 188, 212, 0.35);
+  filter: saturate(1.08);
+}
+
+.btn-experiments:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.dark .btn-experiments {
+  color: #00151d;
+  box-shadow: 0 12px 32px rgba(0, 229, 255, 0.35);
 }
 
 /* 🌙 Dark Mode for Contact Section */
@@ -1234,6 +1283,10 @@ main p {
 .dark .contact-form .btn:hover {
   box-shadow: 0 12px 30px rgba(0, 188, 212, 0.4),
               0 4px 10px rgba(0, 229, 255, 0.3);
+}
+
+.dark .form-status {
+  color: #00e5ff;
 }
 
 .dark .form-wrapper > p {
