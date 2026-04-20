@@ -11,9 +11,9 @@
   <style>
     /* Experiments Page Styles */
     .experiments-hero {
-      background: linear-gradient(135deg, rgba(0,188,212,0.9), rgba(0,150,180,0.9)), url('images/BG.jpg') no-repeat center/cover;
+      background: var(--hero-overlay), url('images/BG.jpg') no-repeat center/cover;
       background-attachment: fixed;
-      min-height: 60vh;
+      min-height: calc(100vh - 74px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -23,14 +23,15 @@
     }
 
     .experiments-hero-content {
-      max-width: 800px;
-      animation: fadeInUp 1s ease forwards;
+      width: min(1100px, 92vw);
+      max-width: none;
+      animation: rise-in 1s ease forwards;
     }
 
     .experiments-hero h1 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       margin-bottom: 20px;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-shadow: none;
     }
 
     .experiments-hero p {
@@ -42,13 +43,14 @@
     /* Experiments Container */
     .experiments-section {
       padding: 80px 20px;
-      max-width: 1200px;
+      width: 100%;
+      max-width: 1320px;
       margin: 0 auto;
     }
 
     .experiments-section h2 {
       font-size: 2.5rem;
-      color: #0078d7;
+      color: var(--brand);
       text-align: center;
       margin-bottom: 60px;
     }
@@ -56,37 +58,39 @@
     /* Experiment Grid */
     .experiments-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
       margin-bottom: 60px;
     }
 
     /* Experiment Card */
     .experiment-card {
-      background: white;
-      border-radius: 15px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 250, 255, 0.9));
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
+      box-shadow: 0 16px 32px rgba(9, 43, 110, 0.12);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      border: 1px solid rgba(94, 140, 223, 0.2);
     }
 
     .experiment-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 22px 40px rgba(9, 43, 110, 0.18);
+      border-color: rgba(25, 137, 255, 0.36);
     }
 
     .experiment-card-header {
-      background: linear-gradient(135deg, #00bcd4, #00e5ff);
-      padding: 30px 20px;
+      background: linear-gradient(135deg, #1476ff, #1ac4ff);
+      padding: 26px 20px;
       color: white;
       text-align: center;
     }
 
     .experiment-card-header h3 {
-      font-size: 1.6rem;
+      font-size: 1.35rem;
       margin: 0;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .experiment-emoji {
@@ -96,63 +100,67 @@
     }
 
     .experiment-level {
-      font-size: 0.85rem;
-      background: rgba(0,0,0,0.2);
+      font-size: 0.78rem;
+      background: rgba(4, 25, 68, 0.26);
       display: inline-block;
-      padding: 5px 12px;
-      border-radius: 20px;
+      padding: 5px 11px;
+      border-radius: 999px;
       margin-top: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .experiment-card-body {
-      padding: 25px;
+      padding: 20px;
     }
 
     .experiment-description {
-      color: #555;
+      color: var(--text-soft);
       line-height: 1.7;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
+      margin-bottom: 16px;
+      font-size: 0.94rem;
     }
 
     .experiment-what {
-      background: #f8f9fa;
-      padding: 15px;
-      border-left: 4px solid #00bcd4;
-      border-radius: 5px;
-      margin-bottom: 20px;
+      background: rgba(12, 124, 255, 0.08);
+      padding: 14px;
+      border-left: 3px solid var(--brand);
+      border-radius: 10px;
+      margin-bottom: 16px;
       font-size: 0.9rem;
     }
 
     .experiment-what strong {
-      color: #0078d7;
+      color: var(--brand);
     }
 
     .experiment-btn {
-      background: linear-gradient(135deg, #00bcd4, #00e5ff);
-      color: #000;
+      background: linear-gradient(135deg, #0f7cff, #16c9ff);
+      color: #fff;
       border: none;
-      padding: 12px 28px;
-      border-radius: 25px;
-      font-weight: 600;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       width: 100%;
       text-align: center;
       text-decoration: none;
       display: inline-block;
+      box-shadow: 0 10px 20px rgba(12, 114, 214, 0.24);
     }
 
     .experiment-btn:hover {
-      background: linear-gradient(135deg, #26c6da, #80deea);
-      transform: scale(1.02);
+      background: linear-gradient(135deg, #0b68d9, #10abd9);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px rgba(12, 114, 214, 0.32);
     }
 
     /* Interactive Experiment */
     .interactive-section {
-      background: linear-gradient(135deg, #f8faff, #e3f2fd);
+      background: var(--surface);
       padding: 60px 20px;
-      border-radius: 15px;
+      border-radius: 8px;
       margin-top: 80px;
     }
 
@@ -162,17 +170,19 @@
     }
 
     .interactive-container {
-      max-width: 800px;
+      width: 100%;
+      max-width: 1040px;
       margin: 0 auto;
-      background: white;
+      background: var(--surface);
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-card);
     }
 
     .interactive-description {
       text-align: center;
-      color: #555;
+      color: var(--text-soft);
       margin-bottom: 30px;
       line-height: 1.7;
     }
@@ -191,7 +201,7 @@
     .demo-input input {
       flex: 1;
       padding: 12px 16px;
-      border: 2px solid #00bcd4;
+      border: 1px solid var(--line);
       border-radius: 8px;
       font-size: 1rem;
       transition: all 0.3s ease;
@@ -199,13 +209,13 @@
 
     .demo-input input:focus {
       outline: none;
-      border-color: #0078d7;
-      box-shadow: 0 0 8px rgba(0,120,215,0.2);
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
     }
 
     .demo-btn {
-      background: linear-gradient(135deg, #00bcd4, #00e5ff);
-      color: #000;
+      background: var(--brand);
+      color: #fff;
       border: none;
       padding: 12px 30px;
       border-radius: 8px;
@@ -215,13 +225,13 @@
     }
 
     .demo-btn:hover {
-      background: linear-gradient(135deg, #26c6da, #80deea);
-      transform: scale(1.05);
+      background: var(--brand-2);
+      transform: translateY(-1px);
     }
 
     .demo-result {
-      background: #f0f8ff;
-      border-left: 4px solid #00bcd4;
+      background: var(--brand-3);
+      border-left: 4px solid var(--brand);
       padding: 20px;
       border-radius: 8px;
       min-height: 60px;
@@ -230,7 +240,7 @@
       justify-content: center;
       text-align: center;
       font-size: 1.1rem;
-      color: #0078d7;
+      color: var(--text);
       font-weight: 600;
       display: none;
     }
@@ -241,8 +251,8 @@
 
     /* Dark Theme */
     .dark .experiment-card {
-      background: #1a1a2e;
-      border-color: #2a2a3e;
+      background: linear-gradient(180deg, rgba(17, 31, 58, 0.96), rgba(12, 24, 45, 0.94));
+      border-color: rgba(102, 153, 236, 0.24);
     }
 
     .dark .experiment-card-body {
@@ -255,7 +265,7 @@
     }
 
     .dark .experiment-what {
-      background: rgba(0,120,215,0.1);
+      background: rgba(0,120,215,0.16);
       color: #b0b8c8;
     }
 
@@ -264,7 +274,7 @@
     }
 
     .dark .interactive-section {
-      background: linear-gradient(135deg, #081226, #0a1428);
+      background: var(--surface);
     }
 
     .dark .interactive-container {
@@ -306,7 +316,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <!-- 🌟 Header -->
   <header>
-    <div class="logo">PHEARUM</div>
+    <a class="logo" href="index.html" aria-label="Go to Home">PHEARUM</a>
     <nav id="navbar">
       <a href="index.html">Home</a>
       <a href="blog.html">Blog</a>
@@ -518,13 +528,11 @@
         return;
       }
 
-      // Magic formula
+      // Classic number trick: double, add 10, halve, then subtract the original.
       const step1 = num * 2;
-      const step2 = step1 + 5;
-      const step3 = step2 * 50;
-      const step4 = step3 + 1776;
-      const step5 = step4 - 1926;
-      const finalResult = step5 / num;
+      const step2 = step1 + 10;
+      const step3 = step2 / 2;
+      const finalResult = step3 - num;
 
       result.textContent = `✨ The magic number is: ${finalResult}`;
       result.classList.add('show');

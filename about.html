@@ -16,154 +16,152 @@
   <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#0078d7">
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Page-specific enhancements */
     .mindset-section {
-      background: #ffffff;
-      color: #333;
-      text-align: center;
-      padding: 100px 20px;
-      animation: fadeInUp 1s ease;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+      animation: rise-in 0.7s ease;
     }
 
     .mindset-section h2 {
-      font-size: 2.6rem;
-      color: #0078d7;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 14px;
+      color: var(--brand);
+      font-size: 2.2rem;
+    }
+
+    .about-content {
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .mindset-section h3 {
-      color: #00bcd4;
-      margin-top: 25px;
-      font-size: 1.6rem;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 1.35rem;
     }
 
     .mindset-section p {
-      max-width: 750px;
-      margin: 0 auto 20px;
-      color: #555;
-      line-height: 1.7;
-      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--text-soft);
+      line-height: 1.72;
     }
 
     .mindset-quote {
       font-style: italic;
-      color: #0078d7;
-      margin-bottom: 30px;
+      color: var(--brand);
     }
 
     .mission-list {
-      text-align: left;
-      max-width: 700px;
-      margin: 0 auto 30px;
+      max-width: 920px;
+      margin: 0 auto 18px;
       padding-left: 20px;
-      list-style-type: "🌟 ";
-      color: #555;
+      display: grid;
+      gap: 8px;
+      color: var(--text-soft);
+    }
+
+    .mission-list li::marker {
+      color: var(--brand);
     }
 
     .fact-card {
-      background: #f8faff;
-      border-radius: 15px;
-      padding: 30px;
-      margin: 40px auto;
-      max-width: 700px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 980px;
+      margin: 28px auto 0;
+      padding: 26px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface-solid);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+      text-align: left;
     }
 
     .fact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
     }
 
     .fact-card h3 {
-      color: #0078d7;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      color: var(--brand);
     }
 
     .fact-text {
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 8px;
-      color: #333;
     }
 
     .fact-meta {
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    .btn {
-      background: linear-gradient(135deg, #00bcd4, #00e5ff);
-      color: #000;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 12px;
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #26c6da, #80deea);
-      transform: scale(1.05);
+      color: var(--text-soft);
+      margin-bottom: 6px;
+      font-size: 0.92rem;
     }
 
     .continue {
-      margin-top: 40px;
-      color: #555;
+      margin-top: 28px;
+      text-align: center;
+      color: var(--text-soft);
     }
 
     .continue a {
-      color: #0078d7;
-      font-weight: 600;
+      color: var(--brand);
+      font-weight: 700;
       text-decoration: none;
-    }
-
-    .continue a:hover {
-      color: #00bcd4;
     }
 
     .continue .continue-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 170px;
       margin-top: 12px;
-      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      background: #0f7cff;
+      border: 1px solid #0f7cff;
+      box-shadow: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
 
-    .dark .mindset-section {
-      background: #0b1323;
-      color: #d6e0f0;
+    .continue .continue-btn:hover {
+      background: #0b67d3;
+      border-color: #0b67d3;
     }
 
-    .dark .mindset-section h2,
-    .dark .fact-card h3,
-    .dark .continue a {
-      color: #00e5ff;
-    }
-
-    .dark .mindset-section p,
-    .dark .mission-list,
-    .dark .continue,
-    .dark .fact-meta {
-      color: #b2bfd4;
-    }
-
-    .dark .mindset-quote {
-      color: #7fdfff;
-    }
-
-    .dark .fact-card {
-      background: #111b2f;
-      border-color: #22314f;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    }
-
-    .dark .fact-text {
-      color: #e6eef8;
+    .continue .continue-btn:active {
+      background: #0959b5;
+      border-color: #0959b5;
     }
 
     .dark .continue .continue-btn {
-      color: #001018;
+      color: #ffffff;
+      background: #3b92ff;
+      border-color: #3b92ff;
+    }
+
+    @media (max-width: 768px) {
+      .mindset-section {
+        border-radius: 8px;
+        padding: 34px 18px;
+      }
+
+      .fact-card {
+        border-radius: 8px;
+        padding: 20px 16px;
+      }
     }
   </style>
 </head>
@@ -172,7 +170,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <!-- 🧭 Header (from global style.css) -->
   <header>
-    <div class="logo">PHEARUM</div>
+    <a class="logo" href="index.html" aria-label="Go to Home">PHEARUM</a>
     <nav id="navbar">
       <a href="index.html">Home</a>
       <a href="blog.html">Blog</a>
@@ -189,8 +187,8 @@
 
   <!-- 🌟 Main Mindset Section -->
   <main id="main">
-    <section class="mindset-section">
-      <h2>Positive Mindset 🌟</h2>
+    <section class="mindset-section" aria-labelledby="mindset-heading">
+      <h2 id="mindset-heading">Positive Mindset 🌟</h2>
 
       <div class="about-content">
         <h3>Grow with Curiosity</h3>
@@ -213,7 +211,7 @@
         <h3>Daily Positive Reflection ☀️</h3>
         <p class="fact-text" id="mindset-text">Loading your daily positive insight…</p>
         <p class="fact-meta" id="mindset-meta">Click below to reveal a new mindset thought.</p>
-        <button class="btn" id="new-mindset-btn">✨ New Thought</button>
+        <button class="btn" id="new-mindset-btn" type="button">✨ New Thought</button>
       </div>
 
       <!-- 🔬 Science Fact -->
@@ -221,7 +219,7 @@
         <h3>Science Fact of the Day 🔬</h3>
         <div class="fact-text" id="fact-text">Loading an interesting science fact…</div>
         <div class="fact-meta" id="fact-meta">Click below to discover another fact.</div>
-        <button class="btn" id="new-fact-btn">🔁 New Fact</button>
+        <button class="btn" id="new-fact-btn" type="button">🔁 New Fact</button>
       </div>
 
       <div class="continue">

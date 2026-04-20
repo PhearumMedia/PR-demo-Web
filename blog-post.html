@@ -4,13 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PHEARUM</title>
+    <meta name="theme-color" content="#0f7cff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#071124" media="(prefers-color-scheme: dark)">
+    <meta name="msapplication-TileColor" content="#0f7cff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.svg">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="images/favicon.svg">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#0f7cff">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Header -->
     <header>
-      <div class="logo">PHEARUM</div>
+      <a class="logo" href="index.html" aria-label="Go to Home">PHEARUM</a>
       <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="blog.html" class="active">Blog</a>
@@ -67,8 +77,8 @@
       // Define all blog posts
       const blogPosts = {
         1: {
-          title: "A mountain valley with green hills",
-          subtitle: "natural landscape scene",
+          title: "Feeling!",
+          subtitle: "A mountain valley with green hills",
           date: "Oct 25, 2025",
           image: "images/blog1.jpg",
           content: `
@@ -88,8 +98,8 @@
         `,
         },
         2: {
-          title: "Tips for Writing Clean Code",
-          subtitle: "Improve readability and maintainability",
+          title: "Mind!",
+          subtitle: "Exploring the majestic fjords",
           date: "Oct 20, 2025",
           image: "images/blog2.jpg",
           content: `
@@ -112,10 +122,10 @@
         `,
         },
         3: {
-          title: "Site News: New Theme Toggle",
-          subtitle: "Interactive theme and position memory",
-          date: "Apr 15, 2026",
-          image: "images/blog1.jpg",
+          title: "Look!",
+          subtitle: "Endless green fields and peaceful countryside",
+          date: "Oct 15, 2025",
+          image: "images/blog3.jpg",
           content: `
         <p>🌾 Endless Green Fields: The Beauty of Peaceful Countryside Landscapes:</p>
         <p>There’s something deeply calming about wide-open fields stretching as far as the eye can see. This stunning countryside scene captures the simplicity and beauty of nature, where vibrant green crops sway gently under a bright blue sky.</p>
@@ -132,44 +142,45 @@
       `,
         },
         4: {
-          title: "News: Projects Page Live",
-          subtitle: "Projects section added to the site",
-          date: "Apr 15, 2026",
-          image: "images/blog2.jpg",
+          title: "Sunrise Over the Mountains",
+          subtitle: "A calm morning view with light, color, and fresh air",
+          date: "Oct 10, 2025",
+          image: "images/blog4.jpg",
           content: `
-        <p>🌄 Sunrise Over the Mountains: A Peaceful Escape Into Nature:</p>
-        <p>There’s something magical about witnessing a sunrise in the mountains—where the world feels untouched, quiet, and full of possibility. This breathtaking scene captures the perfect harmony between rugged peaks, soft wildflowers, and a glowing horizon that signals the start of a new day</p>
-        <p>🌅 The Beauty of Mountain Sunrises:</p>
-        <p>As the sun slowly rises above the distant hills, it paints the sky in shades of orange, pink, and blue. The gentle light spreads across the landscape, illuminating layers of mountains and valleys below. This natural spectacle is not only visually stunning but also deeply calming for the mind and soul.</p>
-        <p>Mountain sunrises are often associated with:</p>
+        <p>A mountain sunrise gives a quiet kind of energy. The air feels fresh, the sky changes every minute, and everything looks calm and clear.</p>
+        <p>This scene shows rugged peaks, soft wildflowers, and warm light moving across the valley. It feels peaceful, but also full of possibility.</p>
+        <h3>🌅 What makes this sunrise special</h3>
+        <p>As the sun rises, the sky shifts through orange, pink, and blue. That soft transition gives the image depth and mood without feeling dramatic.</p>
+        <p>Morning light also reveals detail in the landscape, from the texture of rocks to the gentle shape of distant hills.</p>
+        <p>Mountain sunrises are often linked with:</p>
         <ul>
           <li>Fresh, crisp air</li>
-          <li>Serene silence</li>
-          <li>A sense of renewal and clarity</li>
+          <li>A quiet and focused mind</li>
+          <li>A strong sense of renewal</li>
         </ul>
-        <p>🌼 Wildflowers in the Foreground:</p>
-        <p>In the foreground, delicate white wildflowers bloom among rocky terrain, adding contrast and life to the scene. These flowers symbolize resilience—thriving even in harsh mountain conditions. Their presence enhances the composition, making the image feel vibrant and alive.</p>
-        <p>🏔️ Layers of Mountains and Depth:</p>
-        <p>The image showcases multiple layers of mountain ranges fading into the distance. This creates a sense of depth and scale, reminding us of nature’s vastness. The soft haze between the layers adds a dreamy, almost surreal quality to the view.</p>
-        <p>🌍 Why Nature Photography Matters:</p>
-        <p>Images like this are more than just beautiful—they inspire people to:</p>
+        <h3>🌼 Foreground and depth</h3>
+        <p>White wildflowers in the foreground add life and contrast against stone and earth. They make the frame feel balanced and natural.</p>
+        <p>Behind them, the mountains appear in layers. Each layer fades a little more into the distance, creating a strong sense of scale.</p>
+        <h3>🌍 Why images like this matter</h3>
+        <p>Nature photography is not only visual. It can help people slow down, reset, and reconnect with simple things.</p>
+        <p>Scenes like this can inspire people to:</p>
         <ul>
           <li>Explore the outdoors</li>
           <li>Appreciate natural landscapes</li>
-          <li>Practice mindfulness and relaxation</li>
+          <li>Practice calm attention and mindfulness</li>
         </ul>
-        <p>Nature photography also plays a key role in promoting environmental awareness and conservation.</p>
-        <p>📸 Tips for Capturing a Similar Shot:</p>
-        <p>If you want to capture a stunning mountain sunrise like this, consider these tips:</p>
+        <p>It also helps promote environmental care and long-term conservation.</p>
+        <h3>📸 Tips for capturing a similar photo</h3>
+        <p>If you want a result like this, keep your setup simple and focus on light first:</p>
         <ul>
-          <li>Arrive early to set up before sunrise</li>
-          <li>Use a wide-angle lens to capture the full landscape</li>
-          <li>Include foreground elements like flowers or rocks</li>
-          <li>Shoot during golden hour for soft, warm lighting</li>
-          <li>Use a tripod for stability in low light</li>
+          <li>Arrive early and prepare before first light</li>
+          <li>Use a wide-angle lens for a full landscape view</li>
+          <li>Include a foreground element like flowers or rocks</li>
+          <li>Shoot during golden hour for soft color</li>
+          <li>Use a tripod when light is low</li>
         </ul>
-        <p>✨ Final Thoughts:</p>
-        <p>This mountain sunrise scene is a reminder of how beautiful and peaceful the natural world can be. Whether you’re a photographer, traveler, or nature lover, moments like these are worth experiencing and preserving.</p>
+        <h3>✨ Final thought</h3>
+        <p>This sunrise is a reminder that simple moments in nature can feel powerful. For travelers, photographers, and nature lovers, mornings like this are always worth it.</p>
       `,
         },
         // Add more posts here as needed
